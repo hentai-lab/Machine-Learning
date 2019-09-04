@@ -1,4 +1,5 @@
-﻿# Machine Learning
+﻿
+# Machine Learning
 
 Repositório do [Hentai Lab](https://github.com/hentai-lab) dedicado a estudos sobre aprendizado de máquina. Aqui contém o material utilizado para estudos pessoais e também utilizado em sala de aula durante as disciplinas relacionadas ao assunto.
 
@@ -7,6 +8,7 @@ Repositório do [Hentai Lab](https://github.com/hentai-lab) dedicado a estudos s
 Aqui estão armazenados cada arquivo, seja anotação ou script, que usamos para estudos de aprendizado de máquina. Como são muitos, separamos em pastas para que a organização deixasse mais simples a navegação no repositório.
 
 - **docs:** todo tipo de documento, inclusive datasets utilizados estarão dentro desta pasta, então é de grande importância sua presença no repositório;
+- **html:** as versões em *HTML* dos *notebooks* são armazenados aqui dentro;
 - **notebooks:** anotações feitas em Jupyter Notebook ou links que redirecionem para plataformas online parecidas com ele, como o [Google Colab](https://colab.research.google.com/)  ou o [Watson Studio](https://cloud.ibm.com/catalog/services/watson-studio);
 - **scripts:** os códigos feitos em diversas linguagens (a mais usada, sem dúvidas, é o *Python*) de aplicações utilizando os conceitos de aprendizado de máquina.
 
