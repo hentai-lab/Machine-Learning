@@ -13130,12 +13130,12 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
 
-<span class="n">vgsales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../docs/vgsales.csv&quot;</span><span class="p">)</span>
-<span class="n">vgsales_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vgsales</span><span class="p">)</span>
+<span class="n">vgsales</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../docs/vgsales.csv&quot;</span><span class="p">)</span>
+<span class="n">vgsales_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vgsales</span><span class="p">)</span>
 <span class="n">vgsales_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -13330,7 +13330,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">publisher_game_sale_count</span> <span class="o">=</span> <span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;Publisher&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -13369,20 +13369,174 @@ Name: Publisher, dtype: int64
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>De acordo com os valores retornados, temos um total de 578 editoras (indicado no tamanho do vetor caso apenas mande imprimir a variável <code>publisher_game_sale_count</code>). A que mais vendeu, aparentemente, foi a EA, seguido da Activision e, como medalha de bronze, a Namco Bandai Games.</p>
-<h3 id="Merge">Merge<a class="anchor-link" href="#Merge">&#182;</a></h3><p>Descrição</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Merge">Merge<a class="anchor-link" href="#Merge">&#182;</a></h3><p>gora, vamos analisar os jogos e suas vendas na Europa. Para fazermos isso, iremos criar um <strong>merge</strong> em dois data frames diferentes para podermos ter uma melhor visualização. Isso será feito pois temos um dataset com bastante colunas e, se formos selecionar apenas as colunas que queremos dentro deste dataset, pode acabar demorando mais que o normal porque irá puxar muita informação desnecessária. Ele irá servir para trabalharmos apenas com os jogos e a quantidade de vendas de cada um na Europa.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">games_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+<span class="n">eu_sales_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;EU_Sales&#39;</span><span class="p">])</span>
+
+<span class="n">games_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">eu_sales_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;EU_Sales&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-6-48e9d109da73&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      2</span> eu_sales_df <span class="ansi-yellow-intense-fg ansi-bold">=</span> pandas<span class="ansi-yellow-intense-fg ansi-bold">.</span>DataFrame<span class="ansi-yellow-intense-fg ansi-bold">(</span>vgsales_df<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;EU_Sales&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      3</span> 
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 4</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>games_df<span class="ansi-yellow-intense-fg ansi-bold">.</span>merge<span class="ansi-yellow-intense-fg ansi-bold">(</span>eu_sales_df<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Name&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;EU_Sales&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(self, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="ansi-green-fg">   6866</span>                      right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_on<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>left_index<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-fg">   6867</span>                      right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 6868</span><span class="ansi-yellow-intense-fg ansi-bold">                      copy=copy, indicator=indicator, validate=validate)
+</span><span class="ansi-green-fg">   6869</span> 
+<span class="ansi-green-fg">   6870</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> round<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span> decimals<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">*</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="ansi-green-fg">     45</span>                          right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-fg">     46</span>                          copy<span class="ansi-yellow-intense-fg ansi-bold">=</span>copy<span class="ansi-yellow-intense-fg ansi-bold">,</span> indicator<span class="ansi-yellow-intense-fg ansi-bold">=</span>indicator<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 47</span><span class="ansi-yellow-intense-fg ansi-bold">                          validate=validate)
+</span><span class="ansi-green-fg">     48</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> op<span class="ansi-yellow-intense-fg ansi-bold">.</span>get_result<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     49</span> 
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, left, right, how, on, left_on, right_on, axis, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="ansi-green-fg">    531</span>         <span class="ansi-red-intense-fg ansi-bold"># validate the merge keys dtypes. We may need to coerce</span>
+<span class="ansi-green-fg">    532</span>         <span class="ansi-red-intense-fg ansi-bold"># to avoid incompat dtypes</span>
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 533</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_maybe_coerce_merge_keys<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">    534</span> 
+<span class="ansi-green-fg">    535</span>         <span class="ansi-red-intense-fg ansi-bold"># If argument passed to validate,</span>
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">_maybe_coerce_merge_keys</span><span class="ansi-blue-intense-fg ansi-bold">(self)</span>
+<span class="ansi-green-fg">    978</span>                       (inferred_right in string_types and
+<span class="ansi-green-fg">    979</span>                        inferred_left not in string_types)):
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 980</span><span class="ansi-yellow-intense-fg ansi-bold">                     </span><span class="ansi-green-intense-fg ansi-bold">raise</span> ValueError<span class="ansi-yellow-intense-fg ansi-bold">(</span>msg<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">    981</span> 
+<span class="ansi-green-fg">    982</span>             <span class="ansi-red-intense-fg ansi-bold"># datetimelikes must match exactly</span>
+
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>: You are trying to merge on object and float64 columns. If you wish to proceed you should use pd.concat</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Um erro foi gerado pois a tentativa de dar merge nos dois data frames foi inválida por conta dos dois data frames serem de tipos diferentes. Então, para poder consertar isso, é necessário fazer a conversão de tipos para manter os dois data frames com tipos iguais e, portanto, conseguir fazer o merge.</p>
+<h3 id="Convers&#227;o-de-tipos">Convers&#227;o de tipos<a class="anchor-link" href="#Convers&#227;o-de-tipos">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eu_sales_df</span> <span class="o">=</span> <span class="n">eu_sales_df</span><span class="o">.</span><span class="n">to_string</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Desta forma é feita a conversão do tipo do data frame das vendas na Europa de <em>float</em> para <em>string</em>, podendo então fazer o que era preciso antes: o <strong>merge</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">games_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">eu_sales_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;EU_Sales&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-44-f441cf024160&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>games_df<span class="ansi-yellow-intense-fg ansi-bold">.</span>merge<span class="ansi-yellow-intense-fg ansi-bold">(</span>eu_sales_df<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Name&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;EU_Sales&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(self, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="ansi-green-fg">   6866</span>                      right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_on<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>left_index<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-fg">   6867</span>                      right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 6868</span><span class="ansi-yellow-intense-fg ansi-bold">                      copy=copy, indicator=indicator, validate=validate)
+</span><span class="ansi-green-fg">   6869</span> 
+<span class="ansi-green-fg">   6870</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> round<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span> decimals<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">*</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="ansi-green-fg">     45</span>                          right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-fg">     46</span>                          copy<span class="ansi-yellow-intense-fg ansi-bold">=</span>copy<span class="ansi-yellow-intense-fg ansi-bold">,</span> indicator<span class="ansi-yellow-intense-fg ansi-bold">=</span>indicator<span class="ansi-yellow-intense-fg ansi-bold">,</span>
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 47</span><span class="ansi-yellow-intense-fg ansi-bold">                          validate=validate)
+</span><span class="ansi-green-fg">     48</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> op<span class="ansi-yellow-intense-fg ansi-bold">.</span>get_result<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">     49</span> 
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, left, right, how, on, left_on, right_on, axis, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
+<span class="ansi-green-fg">    478</span>                  validate=None):
+<span class="ansi-green-fg">    479</span>         left <span class="ansi-yellow-intense-fg ansi-bold">=</span> validate_operand<span class="ansi-yellow-intense-fg ansi-bold">(</span>left<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 480</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>right <span class="ansi-yellow-intense-fg ansi-bold">=</span> validate_operand<span class="ansi-yellow-intense-fg ansi-bold">(</span>right<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">    481</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>left <span class="ansi-yellow-intense-fg ansi-bold">=</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>orig_left <span class="ansi-yellow-intense-fg ansi-bold">=</span> left
+<span class="ansi-green-fg">    482</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>right <span class="ansi-yellow-intense-fg ansi-bold">=</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>orig_right <span class="ansi-yellow-intense-fg ansi-bold">=</span> right
+
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">validate_operand</span><span class="ansi-blue-intense-fg ansi-bold">(obj)</span>
+<span class="ansi-green-fg">   1750</span>     <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">   1751</span>         raise TypeError(&#39;Can only merge Series or DataFrame objects, &#39;
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 1752</span><span class="ansi-yellow-intense-fg ansi-bold">                         &#39;a {obj} was passed&#39;.format(obj=type(obj)))
+</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: Can only merge Series or DataFrame objects, a &lt;class &#39;method&#39;&gt; was passed</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13397,14 +13551,14 @@ Name: Publisher, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_Nintendo</span> <span class="o">=</span> <span class="n">vgsales_df</span><span class="o">.</span><span class="n">Publisher</span> <span class="o">==</span> <span class="s2">&quot;Nintendo&quot;</span>
 <span class="n">is_Activision</span> <span class="o">=</span> <span class="n">vgsales_df</span><span class="o">.</span><span class="n">Publisher</span> <span class="o">==</span> <span class="s2">&quot;Activision&quot;</span>
 
-<span class="n">Nintendo_Publisher_serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;Publisher&#39;</span><span class="p">])</span>
-<span class="n">Activision_serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;NA_Sales&#39;</span><span class="p">])</span>
+<span class="n">Nintendo_Publisher_serie</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;Publisher&#39;</span><span class="p">])</span>
+<span class="n">Activision_serie</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;NA_Sales&#39;</span><span class="p">])</span>
 
 <span class="c1"># vgsales_df.loc[is_Activision]</span>
 </pre></div>
@@ -13460,27 +13614,6 @@ Name: Publisher, dtype: int64
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Group-By">Group By<a class="anchor-link" href="#Group-By">&#182;</a></h3><p>Descrição</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Convers&#227;o-de-tipos">Convers&#227;o de tipos<a class="anchor-link" href="#Convers&#227;o-de-tipos">&#182;</a></h3><p>Descrição</p>
 
 </div>
 </div>
