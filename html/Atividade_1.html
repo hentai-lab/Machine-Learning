@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Pré-processamento de dados e análise descritiva</title>
+<title>Atividade - Pré-processamento de dados e análise descritiva</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,27 +13116,21 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Etapa-de-in&#237;cio">Etapa de in&#237;cio<a class="anchor-link" href="#Etapa-de-in&#237;cio">&#182;</a></h1><p>Para esta atividade de pré-processamento de dados e análise descritiva, utilizaremos um <em>dataset</em> chamado <a href="https://www.kaggle.com/gregorut/videogamesales"><strong>Video Game Sales</strong></a>.</p>
-<blockquote><p><em>"This dataset contains a list of video games with sales greater than 100,000 copies."</em></p>
-<p>por GregorySmith, usuário do Kaggle</p>
-</blockquote>
-<p>Este <em>dataset</em> é 16.598x11 (16.598 amostras com 11 colunas).</p>
+<h1 id="Integrantes-do-grupo">Integrantes do grupo<a class="anchor-link" href="#Integrantes-do-grupo">&#182;</a></h1><p>Esses são os três membros do grupo. Utilizamos um <em>.csv</em> para deixar mais dinâmico a apresentação. Para isso, usamos a biblioteca <strong>Pandas</strong>.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[147]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">seaborn</span>
 
-<span class="n">vgsales</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../docs/vgsales.csv&quot;</span><span class="p">)</span>
-<span class="n">vgsales_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vgsales</span><span class="p">)</span>
-<span class="n">vgsales_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">hl_data</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../docs/hl_atividade_1.csv&#39;</span><span class="p">)</span>
+<span class="n">hl_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hl_data</span><span class="p">)</span>
+<span class="n">hl_df</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13149,7 +13143,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[1]:</div>
+    <div class="prompt output_prompt">Out[147]:</div>
 
 
 
@@ -13172,89 +13166,37 @@ div#notebook {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Rank</th>
-      <th>Name</th>
-      <th>Platform</th>
-      <th>Year</th>
-      <th>Genre</th>
-      <th>Publisher</th>
-      <th>NA_Sales</th>
-      <th>EU_Sales</th>
-      <th>JP_Sales</th>
-      <th>Other_Sales</th>
-      <th>Global_Sales</th>
+      <th>Member</th>
+      <th>Hentai Lab Corp</th>
+      <th>Relevance</th>
+      <th>Semester that joined</th>
+      <th>Founder</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
-      <td>Wii Sports</td>
-      <td>Wii</td>
-      <td>2006.0</td>
-      <td>Sports</td>
-      <td>Nintendo</td>
-      <td>41.49</td>
-      <td>29.02</td>
-      <td>3.77</td>
-      <td>8.46</td>
-      <td>82.74</td>
+      <td>Matheus Marques Polillo</td>
+      <td>West</td>
+      <td>1.00</td>
+      <td>2</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>Thiago Aires</td>
+      <td>West</td>
+      <td>1.00</td>
       <td>2</td>
-      <td>Super Mario Bros.</td>
-      <td>NES</td>
-      <td>1985.0</td>
-      <td>Platform</td>
-      <td>Nintendo</td>
-      <td>29.08</td>
-      <td>3.58</td>
-      <td>6.81</td>
-      <td>0.77</td>
-      <td>40.24</td>
+      <td>True</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>Marcello Bertero</td>
+      <td>West</td>
+      <td>0.97</td>
       <td>3</td>
-      <td>Mario Kart Wii</td>
-      <td>Wii</td>
-      <td>2008.0</td>
-      <td>Racing</td>
-      <td>Nintendo</td>
-      <td>15.85</td>
-      <td>12.88</td>
-      <td>3.79</td>
-      <td>3.31</td>
-      <td>35.82</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>Wii Sports Resort</td>
-      <td>Wii</td>
-      <td>2009.0</td>
-      <td>Sports</td>
-      <td>Nintendo</td>
-      <td>15.75</td>
-      <td>11.01</td>
-      <td>3.28</td>
-      <td>2.96</td>
-      <td>33.00</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>Pokemon Red/Pokemon Blue</td>
-      <td>GB</td>
-      <td>1996.0</td>
-      <td>Role-Playing</td>
-      <td>Nintendo</td>
-      <td>11.27</td>
-      <td>8.89</td>
-      <td>10.22</td>
-      <td>1.00</td>
-      <td>31.37</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
@@ -13270,9 +13212,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As colunas do <em>dataset</em> carregam nomes que separados por traço, portanto não é necessário a alteração dos nomes de qualquer uma das colunas.</p>
 <hr>
-<h1 id="Pr&#233;-processamento-de-dados">Pr&#233;-processamento de dados<a class="anchor-link" href="#Pr&#233;-processamento-de-dados">&#182;</a></h1><p>Antes de iniciar qualquer análise profunda ou algo que precise de mais detalhes, vamos primeiro observar com que tipos de dados estamos lidando, quantos jogos por editora têm dentro deste <em>dataset</em> e entre outros detalhes importantes que possam vir a ajudar na hora da análise.</p>
+<h1 id="Character">Character<a class="anchor-link" href="#Character">&#182;</a></h1><p>Enquanto no R, o tipo de variável que representa dados em formato de texto é <strong>character</strong>, enquanto no Python é <strong>str</strong> (String). Usando <code>type()</code>, passando a variável que contém o dado como parâmetro do método podemos ver seu tipo.</p>
 
 </div>
 </div>
@@ -13282,7 +13223,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">vgsales_df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13295,24 +13236,15 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Rank              int64
-Name             object
-Platform         object
-Year            float64
-Genre            object
-Publisher        object
-NA_Sales        float64
-EU_Sales        float64
-JP_Sales        float64
-Other_Sales     float64
-Global_Sales    float64
-dtype: object
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>str</pre>
 </div>
+
 </div>
 
 </div>
@@ -13322,8 +13254,90 @@ dtype: object
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>É possível observar que temos, ao todo, três tipos de dados: flutuantes de 64 bits, inteiros de 64 bits e objetos. Cada objeto deve estar instanciado de alguma classe primária, algo como String ou DateTime, por exemplo.</p>
-<p>Mas, e quantas editoras tem neste <em>dataset</em>? Delas, quantos jogos estão presentes dentro deste <em>dataset</em>? É importante sabermos isso para poder analisar, posteriormente, qual foi a editora que mais vendeu jogos de sucesso (<em>"sales greater than 100,000 copies"</em>).</p>
+<p>Como parâmetro do método foi passado o <code>dataframe.loc</code>, responsável por localizar certo valor em determinada linha e/ou coluna de um data frame. Neste caso, foi pego o nome do <em>Polillo</em> pra servir como valor para identificação de tipo. Para saber como fica o <em>output</em> do valor usado para identificar o tipo <strong>str</strong>, ele fica desta forma:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Matheus Marques Polillo&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Numeric">Numeric<a class="anchor-link" href="#Numeric">&#182;</a></h1><p>Dentro do R há um tipo de variável que comporta valores numéricos com casas decimais, ou seja, valores após a vírgula, enquanto no Python este tipo (<strong>numeric</strong>) é representado por um valor flutuante: o <strong>float</strong>. Usando <code>type()</code>, passando a variável que contém o dado como parâmetro do método podemos ver seu tipo.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Relevance&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>numpy.float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Para ficar melhor a visualização do valor <strong>float</strong>, observe o seguinte exemplo feito a mão:</p>
 
 </div>
 </div>
@@ -13333,8 +13347,50 @@ dtype: object
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">publisher_game_sale_count</span> <span class="o">=</span> <span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;Publisher&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">publisher_game_sale_count</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">peso</span> <span class="o">=</span> <span class="mf">76.2</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">peso</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>float</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ambos tem valores flutuantes, observe:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valor no data frame:&#39;</span><span class="p">,</span> <span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Relevance&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valor da variável criada a mão:&#39;</span><span class="p">,</span> <span class="n">peso</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13351,12 +13407,8 @@ dtype: object
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Electronic Arts                 1351
-Activision                       975
-Namco Bandai Games               932
-Ubisoft                          921
-Konami Digital Entertainment     832
-Name: Publisher, dtype: int64
+<pre>Valor no data frame: 0.97
+Valor da variável criada a mão: 76.2
 </pre>
 </div>
 </div>
@@ -13368,28 +13420,94 @@ Name: Publisher, dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>De acordo com os valores retornados, temos um total de 578 editoras (indicado no tamanho do vetor caso apenas mande imprimir a variável <code>publisher_game_sale_count</code>). A que mais vendeu, aparentemente, foi a EA, seguido da Activision e, como medalha de bronze, a Namco Bandai Games.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Merge">Merge<a class="anchor-link" href="#Merge">&#182;</a></h3><p>gora, vamos analisar os jogos e suas vendas na Europa. Para fazermos isso, iremos criar um <strong>merge</strong> em dois data frames diferentes para podermos ter uma melhor visualização. Isso será feito pois temos um dataset com bastante colunas e, se formos selecionar apenas as colunas que queremos dentro deste dataset, pode acabar demorando mais que o normal porque irá puxar muita informação desnecessária. Ele irá servir para trabalharmos apenas com os jogos e a quantidade de vendas de cada um na Europa.</p>
+<hr>
+<h1 id="Integer">Integer<a class="anchor-link" href="#Integer">&#182;</a></h1><p>Diferente dos tópicos anteriores, o tipo inteiro nas duas linguagens (R e Python) é o mesmo: o <strong>int</strong>. Usando <code>type()</code>, passando a variável que contém o dado como parâmetro do método podemos ver seu tipo.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">games_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
-<span class="n">eu_sales_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;EU_Sales&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Semester that joined&#39;</span><span class="p">])</span>
+</pre></div>
 
-<span class="n">games_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">eu_sales_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;EU_Sales&#39;</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>numpy.int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Assim como no exemplo anterior, se olharmos uma variável feita a mão vamos notar que têm valores parecidos, portanto o tipo continua sendo o mesmo, mudando apenas a forma de sua anotação (os valores do data frame tem o tipo representado pelo <strong>NumPy</strong>)!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qtdFilhos</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">qtdFilhos</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>int</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valor no data frame:&#39;</span><span class="p">,</span> <span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Semester that joined&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valor da variável criada a mão:&#39;</span><span class="p">,</span> <span class="n">qtdFilhos</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13405,44 +13523,10 @@ Name: Publisher, dtype: int64
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-6-48e9d109da73&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">      2</span> eu_sales_df <span class="ansi-yellow-intense-fg ansi-bold">=</span> pandas<span class="ansi-yellow-intense-fg ansi-bold">.</span>DataFrame<span class="ansi-yellow-intense-fg ansi-bold">(</span>vgsales_df<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">&#39;EU_Sales&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">      3</span> 
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 4</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>games_df<span class="ansi-yellow-intense-fg ansi-bold">.</span>merge<span class="ansi-yellow-intense-fg ansi-bold">(</span>eu_sales_df<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Name&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;EU_Sales&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(self, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="ansi-green-fg">   6866</span>                      right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_on<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>left_index<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   6867</span>                      right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-intense-fg ansi-bold">-&gt; 6868</span><span class="ansi-yellow-intense-fg ansi-bold">                      copy=copy, indicator=indicator, validate=validate)
-</span><span class="ansi-green-fg">   6869</span> 
-<span class="ansi-green-fg">   6870</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> round<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span> decimals<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">*</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="ansi-green-fg">     45</span>                          right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-fg">     46</span>                          copy<span class="ansi-yellow-intense-fg ansi-bold">=</span>copy<span class="ansi-yellow-intense-fg ansi-bold">,</span> indicator<span class="ansi-yellow-intense-fg ansi-bold">=</span>indicator<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-intense-fg ansi-bold">---&gt; 47</span><span class="ansi-yellow-intense-fg ansi-bold">                          validate=validate)
-</span><span class="ansi-green-fg">     48</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> op<span class="ansi-yellow-intense-fg ansi-bold">.</span>get_result<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     49</span> 
-
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, left, right, how, on, left_on, right_on, axis, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="ansi-green-fg">    531</span>         <span class="ansi-red-intense-fg ansi-bold"># validate the merge keys dtypes. We may need to coerce</span>
-<span class="ansi-green-fg">    532</span>         <span class="ansi-red-intense-fg ansi-bold"># to avoid incompat dtypes</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 533</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_maybe_coerce_merge_keys<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    534</span> 
-<span class="ansi-green-fg">    535</span>         <span class="ansi-red-intense-fg ansi-bold"># If argument passed to validate,</span>
-
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">_maybe_coerce_merge_keys</span><span class="ansi-blue-intense-fg ansi-bold">(self)</span>
-<span class="ansi-green-fg">    978</span>                       (inferred_right in string_types and
-<span class="ansi-green-fg">    979</span>                        inferred_left not in string_types)):
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 980</span><span class="ansi-yellow-intense-fg ansi-bold">                     </span><span class="ansi-green-intense-fg ansi-bold">raise</span> ValueError<span class="ansi-yellow-intense-fg ansi-bold">(</span>msg<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    981</span> 
-<span class="ansi-green-fg">    982</span>             <span class="ansi-red-intense-fg ansi-bold"># datetimelikes must match exactly</span>
-
-<span class="ansi-red-intense-fg ansi-bold">ValueError</span>: You are trying to merge on object and float64 columns. If you wish to proceed you should use pd.concat</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Valor no data frame: 2
+Valor da variável criada a mão: 3
+</pre>
 </div>
 </div>
 
@@ -13453,38 +13537,698 @@ Name: Publisher, dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Um erro foi gerado pois a tentativa de dar merge nos dois data frames foi inválida por conta dos dois data frames serem de tipos diferentes. Então, para poder consertar isso, é necessário fazer a conversão de tipos para manter os dois data frames com tipos iguais e, portanto, conseguir fazer o merge.</p>
-<h3 id="Convers&#227;o-de-tipos">Convers&#227;o de tipos<a class="anchor-link" href="#Convers&#227;o-de-tipos">&#182;</a></h3>
+<hr>
+<h1 id="Logical">Logical<a class="anchor-link" href="#Logical">&#182;</a></h1><p>O valor lógico do R (<strong>logical</strong>) é representado no Python por <strong>bool</strong>. Ambos tem valores lógicos, ou seja, apenas <strong>True</strong> e <strong>False</strong>. Usando <code>type()</code>, passando a variável que contém o dado como parâmetro do método podemos ver seu tipo.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">eu_sales_df</span> <span class="o">=</span> <span class="n">eu_sales_df</span><span class="o">.</span><span class="n">to_string</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Founder&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>numpy.bool_</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Desta forma é feita a conversão do tipo do data frame das vendas na Europa de <em>float</em> para <em>string</em>, podendo então fazer o que era preciso antes: o <strong>merge</strong>.</p>
+<p>Seguindo os exemplos dados anteriormente, é possível mostrar que o valor do data frame e o valor feito a mão dentro da linguagem são parecidos, apenas mudando a forma como é imprimido seu tipo. Veja:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temCarro</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">temCarro</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>bool</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valor no data frame:&#39;</span><span class="p">,</span> <span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Founder&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valor da variável criada a mão:&#39;</span><span class="p">,</span> <span class="n">temCarro</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Valor no data frame: True
+Valor da variável criada a mão: True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Vectors">Vectors<a class="anchor-link" href="#Vectors">&#182;</a></h1><blockquote><p><em>"O vetor pode ser considerado uma variável multidimensional indexada, ou seja, uma variável que tem a capacidade de guardar mais de um valor simultaneamente do mesmo tipo."</em></p>
+<p>-- <a href="http://nerdsti.com.br/?author=2">Renata Florence dos Santos</a></p>
+</blockquote>
+<p>Para a criação desses vetores utilizamos um laço de repetição para preencher dois vetores vazios. O primeiro vetor é preenchido através do método <code>vector.append()</code>, passando como parâmetro os dados que serão <em>inputados</em> no vetor vazio. O laço de repetição se repetirá 9 vezes. O segundo vetor sofre o mesmo processo.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_relevance_vector</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">hl_relevance_vector</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Relevance&#39;</span><span class="p">])</span>
+<span class="n">hl_relevance_vector</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[48]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1.0, 1.0, 0.97, 1.0, 1.0, 0.99, 0.22, 0.22, 0.58, 0.35]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">games_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">eu_sales_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;EU_Sales&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_names_vector</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">hl_names_vector</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">])</span>
+<span class="n">hl_names_vector</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;Matheus Marques Polillo&#39;,
+ &#39;Thiago Aires&#39;,
+ &#39;Marcello Bertero&#39;,
+ &#39;Felipe Leitão&#39;,
+ &#39;João Pedro Libonati&#39;,
+ &#39;Bruno Seiti&#39;,
+ &#39;Alexandre de Godoy&#39;,
+ &#39;Bruno Paes&#39;,
+ &#39;Miguel Kannan&#39;,
+ &#39;Guilherme Reis&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Lists">Lists<a class="anchor-link" href="#Lists">&#182;</a></h1><blockquote><p><em>"Lists are just like the arrays, declared in other languages. Lists need not be homogeneous always which makes it a most powerful tool in Python. A single list may contain DataTypes like Integers, Strings, as well as Objects. Lists are also very useful for implementing stacks and queues. Lists are mutable, and hence, they can be altered even after their creation."</em></p>
+<p>-- <a href="https://www.geeksforgeeks.org/python-list/">GeeksforGeeks</a></p>
+</blockquote>
+<p>Para criarmos a lista, primeiro instanciamos uma vazia e, através de um laço de repetição que se repete 9 vezes, foi preenchendo a lista através do <code>lista.append()</code>. Por se tratar de uma lista, ela comporta vários tipos de dados, portanto há um total de 3 tipos de <code>lista.append()</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">hl_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">])</span>
+    <span class="n">hl_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Relevance&#39;</span><span class="p">])</span>
+    <span class="n">hl_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;Founder&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hl_list</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Matheus Marques Polillo&#39;, 1.0, True, &#39;Thiago Aires&#39;, 1.0, True, &#39;Marcello Bertero&#39;, 0.97, False, &#39;Felipe Leitão&#39;, 1.0, True, &#39;João Pedro Libonati&#39;, 1.0, True, &#39;Bruno Seiti&#39;, 0.99, False, &#39;Alexandre de Godoy&#39;, 0.22, False, &#39;Bruno Paes&#39;, 0.22, False, &#39;Miguel Kannan&#39;, 0.58, False, &#39;Guilherme Reis&#39;, 0.35, False]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Matrizes">Matrizes<a class="anchor-link" href="#Matrizes">&#182;</a></h1><p>As <strong>matrizes</strong> não são mais do que vetores, contudo elas tem múltiplas dimensões, diferentemente dos vetores que é unidimensional (uma dimensão). Para montarmos uma matriz simples bidimensional iremos utilizar a biblioteca <strong>Numpy</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">hl_vector_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">],</span> <span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">]]</span>
+<span class="n">hl_vector_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">],</span> <span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Member&#39;</span><span class="p">]]</span>
+<span class="n">hl_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="n">hl_vector_1</span><span class="p">,</span> <span class="n">hl_vector_2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hl_matrix</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[&#39;Matheus Marques Polillo&#39; &#39;Thiago Aires&#39;]
+ [&#39;Marcello Bertero&#39; &#39;Felipe Leitão&#39;]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Data-frame">Data frame<a class="anchor-link" href="#Data-frame">&#182;</a></h1><blockquote><p>Estrutura de dados tabular bidimensional, mutável em tamanho e potencialmente heterogênea, com eixos rotulados (linhas e colunas). As operações aritméticas são alinhadas nos rótulos de linha e coluna. Pode ser pensado como um contêiner do tipo ditado para objetos <strong>Series</strong>. A estrutura de dados principal dos <strong>Pandas</strong>.</p>
+<p>-- <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">Pandas</a></p>
+</blockquote>
+<p>É importante ressaltar que apenas listas de tamanhos iguais podem formar um data frame!</p>
+<p>Para esta operação utilizamos a biblioteca <strong>Pandas</strong> no qual, através do método <code>pandas.DataFrame()</code> construímos um data frame a partir de um dicionário.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_members</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Member&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s2">&quot;Member&quot;</span><span class="p">],</span> <span class="s1">&#39;Founder&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s1">&#39;Founder&#39;</span><span class="p">]})</span>
+<span class="n">hl_members</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Member</th>
+      <th>Founder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Matheus Marques Polillo</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Thiago Aires</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Marcello Bertero</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Felipe Leitão</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>João Pedro Libonati</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Bruno Seiti</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Alexandre de Godoy</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Bruno Paes</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Miguel Kannan</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Guilherme Reis</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_corp</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Member&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s2">&quot;Member&quot;</span><span class="p">],</span> <span class="s1">&#39;Hentai Lab Corp&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s1">&#39;Hentai Lab Corp&#39;</span><span class="p">]})</span>
+<span class="n">hl_corp</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Member</th>
+      <th>Hentai Lab Corp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Matheus Marques Polillo</td>
+      <td>West</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Thiago Aires</td>
+      <td>West</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Marcello Bertero</td>
+      <td>West</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Felipe Leitão</td>
+      <td>East</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>João Pedro Libonati</td>
+      <td>East</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Bruno Seiti</td>
+      <td>East</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Alexandre de Godoy</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Bruno Paes</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Miguel Kannan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Guilherme Reis</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Factors">Factors<a class="anchor-link" href="#Factors">&#182;</a></h1><p>Os <strong>factors</strong> são variáveis qualitativas que podem ser incluídas nos modelos.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_relevance</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">hl_relevance</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;Relevance&#39;</span><span class="p">])</span>
+<span class="n">hl_relevance_factor</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">hl_relevance</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">hl_relevance_factor</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[63]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0    1.00
+1    1.00
+2    0.97
+3    1.00
+4    1.00
+5    0.99
+6    0.22
+7    0.22
+8    0.58
+9    0.35
+dtype: category
+Categories (6, float64): [0.22, 0.35, 0.58, 0.97, 0.99, 1.00]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_founder</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">hl_founder</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;Founder&#39;</span><span class="p">])</span>
+<span class="n">hl_founder_factor</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">hl_founder</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">hl_founder_factor</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[62]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0     True
+1     True
+2    False
+3     True
+4     True
+5    False
+6    False
+7    False
+8    False
+9    False
+dtype: category
+Categories (2, object): [False, True]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Missing-values">Missing values<a class="anchor-link" href="#Missing-values">&#182;</a></h1><p>Enquanto no R os campos que não há valor informado são chamados de <strong>NaN</strong>, no Python são chamados de <strong>None</strong>. Montamos um vetor com alguns campos com valores "não-respostas", ou seja, <strong>None</strong> para mostrarmos como seria.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">none_vector</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.3</span><span class="p">,</span> <span class="mf">19.0</span><span class="p">,</span> <span class="mf">65.14</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">none_vector</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[101]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[12.3, 19.0, 65.14, None, None, 1.3, None]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Contudo, o Python não tem uma função nativa para saber se um valor é <strong>None</strong> ou não, portanto cabe a nós desenvolver esta função ou utilizar uma biblioteca que já tenha ela, que no caso é o <strong>NumPy</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">none_vector</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13504,36 +14248,10 @@ Name: Publisher, dtype: int64
 <pre>
 <span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
 <span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-44-f441cf024160&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>games_df<span class="ansi-yellow-intense-fg ansi-bold">.</span>merge<span class="ansi-yellow-intense-fg ansi-bold">(</span>eu_sales_df<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;Name&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-blue-intense-fg ansi-bold">&#39;EU_Sales&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-79-db8b7ee02edd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>numpy<span class="ansi-yellow-intense-fg ansi-bold">.</span>isnan<span class="ansi-yellow-intense-fg ansi-bold">(</span>none_vector<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
 
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(self, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="ansi-green-fg">   6866</span>                      right_on<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_on<span class="ansi-yellow-intense-fg ansi-bold">,</span> left_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>left_index<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-fg">   6867</span>                      right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-intense-fg ansi-bold">-&gt; 6868</span><span class="ansi-yellow-intense-fg ansi-bold">                      copy=copy, indicator=indicator, validate=validate)
-</span><span class="ansi-green-fg">   6869</span> 
-<span class="ansi-green-fg">   6870</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> round<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span> decimals<span class="ansi-yellow-intense-fg ansi-bold">=</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">*</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">merge</span><span class="ansi-blue-intense-fg ansi-bold">(left, right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="ansi-green-fg">     45</span>                          right_index<span class="ansi-yellow-intense-fg ansi-bold">=</span>right_index<span class="ansi-yellow-intense-fg ansi-bold">,</span> sort<span class="ansi-yellow-intense-fg ansi-bold">=</span>sort<span class="ansi-yellow-intense-fg ansi-bold">,</span> suffixes<span class="ansi-yellow-intense-fg ansi-bold">=</span>suffixes<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-fg">     46</span>                          copy<span class="ansi-yellow-intense-fg ansi-bold">=</span>copy<span class="ansi-yellow-intense-fg ansi-bold">,</span> indicator<span class="ansi-yellow-intense-fg ansi-bold">=</span>indicator<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-intense-fg ansi-bold">---&gt; 47</span><span class="ansi-yellow-intense-fg ansi-bold">                          validate=validate)
-</span><span class="ansi-green-fg">     48</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> op<span class="ansi-yellow-intense-fg ansi-bold">.</span>get_result<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     49</span> 
-
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, left, right, how, on, left_on, right_on, axis, left_index, right_index, sort, suffixes, copy, indicator, validate)</span>
-<span class="ansi-green-fg">    478</span>                  validate=None):
-<span class="ansi-green-fg">    479</span>         left <span class="ansi-yellow-intense-fg ansi-bold">=</span> validate_operand<span class="ansi-yellow-intense-fg ansi-bold">(</span>left<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 480</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>right <span class="ansi-yellow-intense-fg ansi-bold">=</span> validate_operand<span class="ansi-yellow-intense-fg ansi-bold">(</span>right<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    481</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>left <span class="ansi-yellow-intense-fg ansi-bold">=</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>orig_left <span class="ansi-yellow-intense-fg ansi-bold">=</span> left
-<span class="ansi-green-fg">    482</span>         self<span class="ansi-yellow-intense-fg ansi-bold">.</span>right <span class="ansi-yellow-intense-fg ansi-bold">=</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>orig_right <span class="ansi-yellow-intense-fg ansi-bold">=</span> right
-
-<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Continuum\anaconda3\lib\site-packages\pandas\core\reshape\merge.py</span> in <span class="ansi-cyan-fg">validate_operand</span><span class="ansi-blue-intense-fg ansi-bold">(obj)</span>
-<span class="ansi-green-fg">   1750</span>     <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">   1751</span>         raise TypeError(&#39;Can only merge Series or DataFrame objects, &#39;
-<span class="ansi-green-intense-fg ansi-bold">-&gt; 1752</span><span class="ansi-yellow-intense-fg ansi-bold">                         &#39;a {obj} was passed&#39;.format(obj=type(obj)))
-</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: Can only merge Series or DataFrame objects, a &lt;class &#39;method&#39;&gt; was passed</pre>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: ufunc &#39;isnan&#39; not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule &#39;&#39;safe&#39;&#39;</pre>
 </div>
 </div>
 
@@ -13544,23 +14262,99 @@ Name: Publisher, dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Concat">Concat<a class="anchor-link" href="#Concat">&#182;</a></h3><p>Descrição</p>
+<p>Mas, como mostra o erro acima, é necessário ter consciência de que o método <code>numpy.isnan()</code> do <strong>NumPy</strong> é limitado ao seu próprio valor nulo. Portanto, faremos das duas formas: construíremos um método para verificar o valor <strong>None</strong> e usaremos também o método <code>numpy.isnan()</code>.</p>
+<p>Começando pelo método do <strong>NumPy</strong>, vamos ajustar o vetor que criamos.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_Nintendo</span> <span class="o">=</span> <span class="n">vgsales_df</span><span class="o">.</span><span class="n">Publisher</span> <span class="o">==</span> <span class="s2">&quot;Nintendo&quot;</span>
-<span class="n">is_Activision</span> <span class="o">=</span> <span class="n">vgsales_df</span><span class="o">.</span><span class="n">Publisher</span> <span class="o">==</span> <span class="s2">&quot;Activision&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">none_vector</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.3</span><span class="p">,</span> <span class="mf">19.0</span><span class="p">,</span> <span class="mf">65.14</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">nan</span><span class="p">]</span>
+<span class="n">none_vector</span>
+</pre></div>
 
-<span class="n">Nintendo_Publisher_serie</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;Publisher&#39;</span><span class="p">])</span>
-<span class="n">Activision_serie</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vgsales_df</span><span class="p">[</span><span class="s1">&#39;NA_Sales&#39;</span><span class="p">])</span>
+    </div>
+</div>
+</div>
 
-<span class="c1"># vgsales_df.loc[is_Activision]</span>
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[97]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[12.3, 19.0, 65.14, nan, nan, 1.3, nan]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">none_vector</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[False False False  True  True False  True]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Aí está, o <strong>NumPy</strong> consegue identificar os valores nulos quando utilizamos o método da própria biblioteca para gerar seus próprios valores nulos.</p>
+<p>Agora, vamos criar nosso próprio método de verificação.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[121]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">is_none</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">none_vector</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">none_vector</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">none_vector</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">none_vector</span>
 </pre></div>
 
     </div>
@@ -13571,20 +14365,40 @@ Name: Publisher, dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Replace">Replace<a class="anchor-link" href="#Replace">&#182;</a></h3><p>Descrição</p>
+<p>Este é o método <code>is_none()</code>. Ele recebe como parâmetro um vetor. Dentro deste método há um vetor que receberá valores booleanos baseado na verificação do método. Ele verificará, em cada posição do vetor, onde há valor <strong>None</strong> e onde não há. No fim, ele retorna o vetor com os valores booleanos.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_none</span><span class="p">(</span><span class="n">none_vector</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[123]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[False, False, False, True, True, False, True]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13592,20 +14406,92 @@ Name: Publisher, dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Subset">Subset<a class="anchor-link" href="#Subset">&#182;</a></h3><p>Descrição</p>
+<hr>
+<h1 id="Subsetting">Subsetting<a class="anchor-link" href="#Subsetting">&#182;</a></h1><p><strong>Subsetting</strong> é a capacidade do Python de retornar um ou mais valores baseado no número correspondente a posição do vetor. Ou seja, valor(es) correspondente(s) a posição 0 (no R é 1) de um certo vetor serão retornadas caso o programa seja ordenado a tal. Um exemplo disso é o que foi feito na apresentação dos integrantes do grupo.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_df</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[124]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Member</th>
+      <th>Hentai Lab Corp</th>
+      <th>Relevance</th>
+      <th>Semester that joined</th>
+      <th>Founder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Matheus Marques Polillo</td>
+      <td>West</td>
+      <td>1.00</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Thiago Aires</td>
+      <td>West</td>
+      <td>1.00</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Marcello Bertero</td>
+      <td>West</td>
+      <td>0.97</td>
+      <td>3</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13613,20 +14499,503 @@ Name: Publisher, dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Group-By">Group By<a class="anchor-link" href="#Group-By">&#182;</a></h3><p>Descrição</p>
+<p>Aqui é selecionado apenas os três primeiros valores do data frame. Vamos usar o vetor de <em>members</em> criado anteriormente no tópico de vetores para aplicar o <strong>subsetting</strong> nele.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hl_names_vector</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=======================</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hl_names_vector</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=======================</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hl_names_vector</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Matheus Marques Polillo
+
+=======================
+
+[&#39;Thiago Aires&#39;, &#39;Marcello Bertero&#39;]
+
+=======================
+
+[&#39;Matheus Marques Polillo&#39;, &#39;Thiago Aires&#39;, &#39;Marcello Bertero&#39;, &#39;Felipe Leitão&#39;, &#39;João Pedro Libonati&#39;, &#39;Bruno Seiti&#39;, &#39;Alexandre de Godoy&#39;, &#39;Bruno Paes&#39;, &#39;Miguel Kannan&#39;, &#39;Guilherme Reis&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Agora, vamos utilizar o data frame inteiro para podermos ver como o <strong>subsetting</strong> se comporta quando aplica a ele.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hl_df</span><span class="p">[</span><span class="s1">&#39;Member&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> Matheus Marques Polillo
+            Thiago Aires
+        Marcello Bertero
+           Felipe Leitão
+     João Pedro Libonati
+             Bruno Seiti
+      Alexandre de Godoy
+              Bruno Paes
+           Miguel Kannan
+          Guilherme Reis
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Logical-subsetting">Logical subsetting<a class="anchor-link" href="#Logical-subsetting">&#182;</a></h1><p>Funciona da mesma forma que o <strong>subsetting</strong> apresentado anteriormente, porém ele trabalha com valores booleanos que são resultados de verificações de existência feitas pelo Python. Para entender melhor, observe:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_polillo</span> <span class="o">=</span> <span class="n">hl_df</span><span class="o">.</span><span class="n">Member</span> <span class="o">==</span> <span class="s2">&quot;Matheus Marques Polillo&quot;</span>
+<span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_polillo</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[141]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Member</th>
+      <th>Hentai Lab Corp</th>
+      <th>Relevance</th>
+      <th>Semester that joined</th>
+      <th>Founder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Matheus Marques Polillo</td>
+      <td>West</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Como pode ser observado acima, a variável <code>is_polillo</code> carrega um vetor de valores booleanos, resultantes da verificação feita pelo restante da linha de código, analisando se há ou não o valor <em>Matheus Marques Polillo</em> dentro da coluna <em>Members</em> do data frame. No meio do vetor desta variável deverá haver um <strong>True</strong> responsável por avisar em que índice o valor <em>Matheus Marques Polillo</em> se encontra para que assim o <code>dataframe.loc[]</code> funcione. Veja o valor da variável:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_polillo</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[144]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0     True
+1    False
+2    False
+3    False
+4    False
+5    False
+6    False
+7    False
+8    False
+9    False
+Name: Member, dtype: bool</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Vamos fazer de outra forma. Desta vez, coletaremos apenas os membros fundadores do grupo, ou seja, que tem o valor booleano <strong>True</strong> na coluna <em>Founder</em>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_founder</span> <span class="o">=</span> <span class="n">hl_df</span><span class="o">.</span><span class="n">Founder</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="n">hl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_founder</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[145]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Member</th>
+      <th>Hentai Lab Corp</th>
+      <th>Relevance</th>
+      <th>Semester that joined</th>
+      <th>Founder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Matheus Marques Polillo</td>
+      <td>West</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Thiago Aires</td>
+      <td>West</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Felipe Leitão</td>
+      <td>East</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>João Pedro Libonati</td>
+      <td>East</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[148]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_founder</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[148]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0     True
+1     True
+2    False
+3     True
+4     True
+5    False
+6    False
+7    False
+8    False
+9    False
+Name: Founder, dtype: bool</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Merge(-)">Merge( )<a class="anchor-link" href="#Merge(-)">&#182;</a></h1><p>Este método pertence a biblioteca <strong>Pandas</strong>, responsável por mesclar dois data frames. Função bastante parecida com as funções de <em>join</em> que usamos em SQL.</p>
+<p>Para fazermos um <code>merge()</code> que funcione com excelência vamos usar dois data frames que tenham uma coluna e seus valores parecidos para que o método identifique quais são os valores iguais e, através disso, faça o <em>merge</em> com os valores pertencentes as linhas corretas. Para isso, vamos usar um data frame que irá coletar o nome dos membros e se ele é ou não fundador, e outro data frame que irá coletar o nome dos membros (pra fazer a associação com o outro data frame) e de qual corporação do HL ele pertence. Observe:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hl_corp_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Member&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s2">&quot;Member&quot;</span><span class="p">],</span> <span class="s1">&#39;Hentai Lab Corp&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s1">&#39;Hentai Lab Corp&#39;</span><span class="p">]})</span>
+<span class="n">hl_member_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Member&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s2">&quot;Member&quot;</span><span class="p">],</span> <span class="s1">&#39;Founder&#39;</span><span class="p">:</span> <span class="n">hl_df</span><span class="p">[</span><span class="s1">&#39;Founder&#39;</span><span class="p">]})</span>
+<span class="n">hl_merge_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">hl_corp_df</span><span class="p">,</span> <span class="n">hl_member_df</span><span class="p">)</span>
+
+<span class="n">hl_merge_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[152]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Member</th>
+      <th>Hentai Lab Corp</th>
+      <th>Founder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Matheus Marques Polillo</td>
+      <td>West</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Thiago Aires</td>
+      <td>West</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Marcello Bertero</td>
+      <td>West</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Felipe Leitão</td>
+      <td>East</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>João Pedro Libonati</td>
+      <td>East</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Bruno Seiti</td>
+      <td>East</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Alexandre de Godoy</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Bruno Paes</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Miguel Kannan</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Guilherme Reis</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
