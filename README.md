@@ -1,9 +1,8 @@
-﻿
 # Machine Learning
 
 Repositório do [Hentai Lab](https://github.com/hentai-lab) dedicado a estudos sobre aprendizado de máquina. Aqui contém o material utilizado para estudos pessoais e também utilizado em sala de aula durante as disciplinas relacionadas ao assunto.
 
-# Mapa de navegação
+# Estrutura do repositório
 
 Aqui estão armazenados cada arquivo, seja anotação ou script, que usamos para estudos de aprendizado de máquina. Como são muitos, separamos em pastas para que a organização deixasse mais simples a navegação no repositório.
 
@@ -28,6 +27,16 @@ Aqui está o atual time de desenvolvedores que participa da montagem deste repos
 | [Matheus Marques Polillo](https://github.com/matheuspolillo) | Redes Neurais Artificiais | Python, Julia |
 
 **OBSERVAÇÃO:** as áreas de desempenho são as áreas de estudo e desenvolvimento pessoal de cada desenvolvedor. Os scripts, documentos e notebooks feito para as aulas não reflete sua área de desempenho.
+
+# Roadmap
+
+Apenas um simples mapa para ajudar a localizar os arquivos HTML que exibem os código, tanto com os inputs e outputs, quanto sem. Segue abaixo a tabela que mapeia esses arquivos.
+
+| Disciplina | Responsável | Arquivo |
+| --- | --- | -- |
+| Machine Learning Analytics | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Atividade 1](https://hentai-lab.github.io/Machine-Learning/html/Atividade_1) |
+| Machine Learning Analytics | [Felipe Leitão](https://github.com/Fishermanzi) | ["Meu coiso"](https://hentai-lab.github.io/Machine-Learning/html/meu_coiso) |
+| Inteligência Artificial | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Face Recognition with Eigenface](https://hentai-lab.github.io/Machine-Learning/html/Face_Recognition_with_Eigenface) |
 
 # Créditos
 
