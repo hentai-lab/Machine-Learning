@@ -36,7 +36,7 @@ Apenas um simples mapa para ajudar a localizar os arquivos HTML que exibem os c�
 | --- | --- | -- |
 | Machine Learning Analytics | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Atividade 1](https://hentai-lab.github.io/Machine-Learning/html/Atividade_1) |
 | Machine Learning Analytics | [Felipe Leitão](https://github.com/Fishermanzi) | ["Meu coiso"](https://hentai-lab.github.io/Machine-Learning/html/meu_coiso) |
-| Inteligência Artificial | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Face Recognition with Eigenface](https://hentai-lab.github.io/Machine-Learning/html/Face_Recognition_with_Eigenface) |
+| Inteligência Artificial | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Face Recognition](https://hentai-lab.github.io/Machine-Learning/html/Face_Recognition) |
 
 # Créditos
 
