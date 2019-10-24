@@ -25,6 +25,7 @@ Aqui está o atual time de desenvolvedores que participa da montagem deste repos
 | Desenvolvedor | Área de desempenho | Linguagem |
 | --- | --- | --- |
 | [Matheus Marques Polillo](https://github.com/matheuspolillo) | Redes Neurais Artificiais | Python, Julia |
+| [Felipe Leitão](https://github.com/Fishermanzi) | Nenhuma | Python |
 
 **OBSERVAÇÃO:** as áreas de desempenho são as áreas de estudo e desenvolvimento pessoal de cada desenvolvedor. Os scripts, documentos e notebooks feito para as aulas não reflete sua área de desempenho.
 
@@ -37,6 +38,7 @@ Apenas um simples mapa para ajudar a localizar os arquivos HTML que exibem os c�
 | Machine Learning Analytics | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Atividade 1](https://hentai-lab.github.io/Machine-Learning/html/Atividade_1) |
 | Machine Learning Analytics | [Felipe Leitão](https://github.com/Fishermanzi) | ["Meu coiso"](https://hentai-lab.github.io/Machine-Learning/html/meu_coiso) |
 | Inteligência Artificial | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Face Recognition](https://hentai-lab.github.io/Machine-Learning/html/Face_Recognition) |
+| Inteligência Artificial | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Naive Bayes para classificação de textos](https://hentai-lab.github.io/Machine-Learning/html/Naive_Bayes) |
 
 # Créditos
 
