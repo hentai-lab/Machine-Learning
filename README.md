@@ -39,7 +39,7 @@ Apenas um simples mapa para ajudar a localizar os arquivos HTML que exibem os c�
 | Machine Learning Analytics | [Felipe Leitão](https://github.com/Fishermanzi) | ["Meu coiso"](https://hentai-lab.github.io/Machine-Learning/html/meu_coiso) |
 | Inteligência Artificial | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Face Recognition](https://hentai-lab.github.io/Machine-Learning/html/Face_Recognition) |
 | Inteligência Artificial | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Naive Bayes para classificação de textos](https://hentai-lab.github.io/Machine-Learning/html/Naive_Bayes) |
-| Machine Learning Analytics | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Projeto 03](https://colab.research.google.com/drive/1k-dGUHPAAwglv7l1xx51mM1rX3zSdneF)|
+| Machine Learning Analytics | [Matheus Marques Polillo](https://github.com/matheuspolillo) | [Projeto 03](https://colab.research.google.com/drive/1Y4UCEtlearGtUg_l7fec75JsQFZm9_cK)|
 
 # Créditos
 
